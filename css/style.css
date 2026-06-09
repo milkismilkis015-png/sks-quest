@@ -1,0 +1,374 @@
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .app {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Карточки */
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        button {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Шапка */
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bonus-balance {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 1.2rem;
+        }
+
+        .streak {
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 10px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 40px;
+        }
+
+        /* Квесты */
+        .quest-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quest-card.completed {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .quest-reward {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Лидерборд */
+        #leaderboardList {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        #leaderboardList li {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+
+        /* Колесо */
+        .wheel-container canvas {
+            display: block;
+            margin: 0 auto 20px;
+            cursor: pointer;
+        }
+
+        #spinResult {
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 16px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        /* Воронёнок */
+        .mascot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            z-index: 1000;
+        }
+
+        .raven-avatar {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border-radius: 50%;
+            padding: 10px;
+            border: 2px solid #ffd700;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .raven-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .mascot-bubble {
+            background: white;
+            color: #1a1a2e;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            max-width: 250px;
+            font-size: 0.9rem;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mascot-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-width: 10px 10px 0 0;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+
+        .mascot-bubble.hidden {
+            display: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        /* Каталог призов */
+.prizes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.prize-card {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 15px;
+    width: 160px;
+    text-align: center;
+    transition: transform 0.2s;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.prize-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+.prize-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.prize-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.prize-cost {
+    color: #ffd700;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.prize-cost span {
+    font-size: 18px;
+}
+
+.prize-stock {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.buy-btn {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.buy-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.no-prizes {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.7;
+}
+/* Левый лидерборд (симметрично воронёнку) */
+.leaderboard-left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.leaderboard-left .leaderboard-header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+.leaderboard-left .leaderboard-header h3 {
+    color: #ffd700;
+    font-size: 16px;
+    margin: 0;
+}
+
+.leaderboard-left #leaderboardList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.leaderboard-left #leaderboardList li {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leaderboard-left #leaderboardList li:last-child {
+    border-bottom: none;
+}
+
+/* На мобильных экранах скрываем левый лидерборд (или уменьшаем) */
+@media (max-width: 700px) {
+    .leaderboard-left {
+        width: 180px;
+        font-size: 11px;
+        max-height: 250px;
+    }
+    
+    .leaderboard-left .leaderboard-header h3 {
+        font-size: 12px;
+    }
+}
+
+/* Для совсем маленьких экранов — скрываем */
+@media (max-width: 500px) {
+    .leaderboard-left {
+        display: none;
+    }
+}/* ДВЕ КОЛОНКИ */
+.main-layout {
+    display: flex;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* ЛЕВАЯ КОЛОНКА (фиксированная ширина) */
+.left-column {
+    width: 320px;
+    position: sticky;
+    top: 20px;
+}
+
+/* ПРАВАЯ КОЛОНКА (растягивается) */
+.right-column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 800px) {
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .left-column {
+        width: 100%;
+        position: static;
+    }
+}
+
+/* Стили для колеса в левой колонке */
+.left-column .spin-wheel {
+    margin-bottom: 20px;
+}
+
+.left-column .spin-wheel canvas {
+    width: 100%;
+    height: auto;
+}
+
+/* Стили для лидерборда в левой колонке */
+.left-column .leaderboard {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.left-column .leaderboard #leaderboardList li {
+    padding: 8px 10px;
+    font-size: 14px;
+}
