@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKS Quest — Воронёнок</title>
-    <link rel="shortcut icon" href="C:\Users\admin\Desktop\геймификация для скс\7Y457RFt6SxkWasi4TfwLKpdbcHS7tkXp3oJC_Eagk6XOuefbgbDSy3ZvMd-Gy4usZn_yRl9UnS7C02er1EsXuNi.jpg" type="image/x-icon">
+    <!-- ИКОНКА САЙТА (ОТНОСИТЕЛЬНЫЙ ПУТЬ) -->
+    <link rel="shortcut icon" href="img/7Y457RFt6SxkWasi4TfwLKpdbcHS7tkXp3oJC_Eagk6XOuefbgbDSy3ZvMd-Gy4usZn_yRl9UnS7C02er1EsXuNi.jpg" type="image/x-icon">
     <!-- Подключаем CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,8 +16,8 @@
             <div class="user-info">
                 <span>👤 Алексей</span>
                 <div class="bonus-balance">
-    💰 <span id="bonusBalance">0</span> бонусов
-</div>
+                    💰 <span id="bonusBalance">0</span> бонусов
+                </div>
                 <div>
                     Статус: <span id="loyaltyStatus">Постоянный</span>
                 </div>
@@ -43,39 +44,40 @@
 
         <!-- Колесо фортуны -->
         <section class="spin-wheel">
-                <h2>🎡 Колесо фортуны</h2>
-                <div class="wheel-container">
-                    <canvas id="wheelCanvas" width="280" height="280"></canvas>
-                </div>
-                <button id="spinBtn">🎡 Крутить (раз в неделю)</button>
-                <div id="spinResult"></div>
-            </section>
-
+            <h2>🎡 Колесо фортуны</h2>
+            <div class="wheel-container">
+                <canvas id="wheelCanvas" width="280" height="280"></canvas>
+            </div>
+            <button id="spinBtn">🎡 Крутить (раз в неделю)</button>
+            <div id="spinResult"></div>
+        </section>
 
         <!-- Лидерборд -->
-   <!-- Левая панель с лидербордом (симметрично воронёнку) -->
-<div class="leaderboard-left" id="leaderboardLeft">
-    <div class="leaderboard-header">
-        <h3>🏆 Топ игроков</h3>
+        <div class="leaderboard-left" id="leaderboardLeft">
+            <div class="leaderboard-header">
+                <h3>🏆 Топ игроков</h3>
+            </div>
+            <ol id="leaderboardList"></ol>
+        </div>
     </div>
-    <ol id="leaderboardList"></ol>
-</div>
+
     <!-- Воронёнок -->
     <div class="mascot" id="mascot">
         <div class="mascot-bubble hidden" id="mascotBubble">
             Кар-р! Добро пожаловать!
         </div>
         <div class="raven-avatar" id="ravenAvatar">
-            <img src="C:\Users\admin\Desktop\геймификация для скс\img\d-XmNVVcFSio2Xgyq27a6cmxGZWLqzpLm7-VvhEzDv_4R2QYPveiPaucOV9g2gyQiqp334Yg9aUwxljrP-6M1IvX.jpg" width="150" height="150" style="border-radius:50%; object-fit: cover;">
+            <img src="img/d-XmNVVcFSio2Xgyq27a6cmxGZWLqzpLm7-VvhEzDv_4R2QYPveiPaucOV9g2gyQiqp334Yg9aUwxljrP-6M1IvX.jpg" width="150" height="150" style="border-radius:50%; object-fit: cover;">
         </div>
     </div>
+
     <!-- Каталог призов -->
-<section class="prizes">
-    <h2>🎁 Каталог призов</h2>
-    <div class="prizes-container" id="prizesContainer">
-        <!-- Призы будут добавляться через JavaScript -->
-    </div>
-</section>
+    <section class="prizes">
+        <h2>🎁 Каталог призов</h2>
+        <div class="prizes-container" id="prizesContainer">
+            <!-- Призы будут добавляться через JavaScript -->
+        </div>
+    </section>
 
     <!-- Подключаем JavaScript -->
     <script src="js/script.js"></script>
